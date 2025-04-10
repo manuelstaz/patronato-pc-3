@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patronato Zacualpan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background-image: url('https://github.com/manuelstaz/patronato-pc-2/blob/main/voluntarios%20de%20pc.jpeg?raw=true');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .frase {
+      font-size: 1.5rem;
+      animation: fade 2s infinite alternate;
+    }
+    @keyframes fade {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #003366;
+    }
+    .botones button {
+      background-color: #f4c430;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .seccion {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .seccion h2 {
+      color: #002147;
+    }
+    .activo {
+      display: block;
+    }
+    .mensaje-flotante {
+      font-size: 1.2rem;
+      animation: flotante 8s forwards;
+    }
+    @keyframes flotante {
+      0% {color: white;}
+      50% {color: yellow;}
+      100% {color: white;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Patronato Zacualpan Pro-equipamiento de Protección Civil</h1>
+    <div class="frase" id="fraseMotivadora"></div>
+    <div class="mensaje-flotante" id="mensajeJurisdiccion">Nuestra jurisdicción de voluntarios abarca desde Playa Platanitos hasta Las Varas Nayarit... ¡GRACIAS!</div>
+  </header>
+
+  <div class="botones">
+    <button onclick="mostrarSeccion('quienes')">¿QUIÉNES SOMOS?</button>
+    <button onclick="mostrarSeccion('mesa')">MESA DIRECTIVA</button>
+    <button onclick="mostrarSeccion('donador')">HAZTE DONADOR DE UN PESO POR DÍA</button>
+  </div>
+
+  <section id="quienes" class="seccion">
+    <h2>¿Quiénes somos?</h2>
+    <p>Somos un grupo de voluntarios que decidimos unirnos a la causa de Protección Civil Zacualpan, porque estamos mirando la necesidad de este gran equipo de voluntarios que ya tienen más de 20 años careciendo de todo y hemos visto cómo se pierden vidas en accidentes en nuestro entorno, por falta de equipo de rescate en accidentes automovilísticos, especialmente en herramientas de desprensado de personas atrapadas en los fierros comprimidos del choque o accidente.</p>
+
+    <h2>Misión</h2>
+    <p>Unirnos en este patronato con el fin de buscar entre todos la idea o forma de recaudar fondos para lograrlo y además estar unidos y empezar con la muestra de una cuota autoasignada por los miembros del patronato, desde la cuota mínima de un peso por día en promedio de cooperación mensual.</p>
+
+    <h2>Visión</h2>
+    <p>Miramos un Zacualpan unido y potencializado ante la adversidad y la tragedia y que juntos hagamos un pueblo más sólido ante tales circunstancias.</p>
+
+    <h2>Valores</h2>
+    <ul>
+      <li>Ética profesional</li>
+      <li>Empatía</li>
+      <li>Diversidad</li>
+      <li>Honestidad</li>
+      <li>Responsabilidad</li>
+    </ul>
+  </section>
+
+  <section id="mesa" class="seccion">
+    <h2>Acceso Mesa Directiva</h2>
+    <p>Formulario privado en construcción.</p>
+  </section>
+
+  <section id="donador" class="seccion">
+    <h2>Hazte Donador</h2>
+    <p>Formulario de registro en construcción.</p>
+  </section>
+
+  <script>
+    const frases = [
+      "Tu apoyo equipa a nuestros héroes voluntarios",
+      "Un pueblo unido es un pueblo fuerte",
+      "Cada peso cuenta para salvar vidas"
+    ];
+    let fraseIndex = 0;
+    setInterval(() => {
+      document.getElementById('fraseMotivadora').textContent = frases[fraseIndex];
+      fraseIndex = (fraseIndex + 1) % frases.length;
+    }, 2000);
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion').forEach(s => s.classList.remove('activo'));
+      document.getElementById(id).classList.add('activo');
+    }
+  </script>
+</body>
+</html>
